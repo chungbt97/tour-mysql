@@ -60,3 +60,10 @@ create table task(
     deleted_at DATETIME,
     CONSTRAINT fk_task_to_project foreign key (project_id) references go_company.project(id)
 );
+CREATE TABLE assignment (
+    id INT NOT NULL PRIMARY KEY,
+    project_id INT NOT NULL,
+    employee_id INT NOT NULL,
+    CONSTRAINT fk_project_id foreign key (project_id) references go_company.project(id),
+    CONSTRAINT fk_employee_id foreign key (employee_id) references go_company.employee(id)
+);

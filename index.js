@@ -1,5 +1,5 @@
 const getRanEm = () => (1 + Math.floor(Math.random() * 179)) * 80;
-const getRanTask = () =>  (1 + Math.floor(Math.random() * 159));
+const getRanPro = () =>  (1 + Math.floor(Math.random() * 8));
 
 
 
