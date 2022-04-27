@@ -25,3 +25,38 @@ CREATE TABLE go_company.employee (
     deleted_at DATETIME,
     CONSTRAINT fk_company foreign key(company_id) references go_company.company(id)
 ) ENGINE = INNODB;
+create table project(
+    id INT NOT NULL PRIMARY KEY,
+    company_id INT NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `code` varchar(255) NOT NULL,
+    `status` varchar(50) NOT NULL,
+    `description` varchar(255),
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    CONSTRAINT fk_project_to_company foreign key (company_id) references go_company.company(id)
+);
+create table project(
+    id INT NOT NULL PRIMARY KEY,
+    company_id INT NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `code` varchar(255) NOT NULL,
+    `status` varchar(50) NOT NULL,
+    `description` varchar(255),
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    CONSTRAINT fk_project_to_company foreign key (company_id) references go_company.company(id)
+);
+create table task(
+    id INT NOT NULL PRIMARY KEY,
+    project_id INT NOT NULL,
+    `name` varchar(255) NOT NULL,
+    `status` varchar(50) NOT NULL,
+    `description` varchar(255),
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    CONSTRAINT fk_task_to_project foreign key (project_id) references go_company.project(id)
+);
